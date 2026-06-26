@@ -161,36 +161,41 @@
         
         <p style="font-size: 0.85rem; color: var(--text-muted);">&copy; 2026 Tamer Rabie. All rights reserved.</p>
     </footer>
-
-    <!-- ربط ملف البرمجة والتفاعل الخارجي JS قبل إغلاق الـ body مباشرة -->
-    <script src="script.js"></script>
-        <!-- واجهة المساعد الذكي moaid المترابطة -->
-    <div class="chat-widget" id="chatWidget">
-        <!-- زر فتح الشات العائم -->
-        <button class="chat-trigger" onclick="toggleChat()">
-            <i class="fa-solid fa-comments"></i> <span id="chat-trigger-text">تحدث مع moaid</span>
+    <!-- واجهة المساعد الذكي moaid العائمة -->
+    <div class="chat-widget-container">
+        <!-- زر فتح وإغلاق الشات -->
+        <button class="chat-trigger-btn" onclick="toggleChatWindow()">
+            <i class="fa-solid fa-comments"></i> <span id="chat-btn-text">تحدث مع moaid</span>
         </button>
 
         <!-- نافذة المحادثة -->
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
-                <div class="bot-info">
-                    <div class="bot-avatar">M</div>
-                    <div>
-                        <h4>moaid</h4>
-                        <p id="bot-status">المساعد الذكي نشط الآن</p>
-                    </div>
+                <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+                <div class="chat-status-info">
+                    <h4>moaid</h4>
+                    <p>المساعد الذكي لـ Mr. Tamer</p>
                 </div>
-                <button class="close-chat" onclick="toggleChat()">&times;</button>
+                <button class="chat-close-btn" onclick="toggleChatWindow()">&times;</button>
             </div>
             
-            <div class="chat-messages" id="chatMessages">
-                <!-- الرسالة الترحيبية الافتتاحية -->
-                <div class="message bot-msg">
-                    اهلا بك يا فندم! أنا moaid المساعد الذكي لمستر تامر ربيع. نورت موقعنا! كيف يمكنني مساعدتك اليوم بخصوص مناهج اللغة الإنجليزية؟
+            <!-- منطقة عرض الرسائل -->
+            <div class="chat-messages-body" id="chatMessages">
+                <div class="chat-bubble bot-msg">
+                    أهلاً بك! أرسل أي كلمة لبدء المحادثة مع moaid.
                 </div>
             </div>
 
+            <!-- منطقة إدخال النص -->
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="اكتب رسالتك هنا..." onkeypress="handleChatKeyPress(event)">
+                <button onclick="sendUserMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ربط ملف البرمجة الخارجي -->
+    <script src="script.js"></script>
             <div class="chat-footer-input">
                 <input type="text" id="userInput" placeholder="اكتب استفسارك هنا..." onkeypress="handleKeyPress(event)">
                 <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
