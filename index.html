@@ -164,5 +164,38 @@
 
     <!-- ربط ملف البرمجة والتفاعل الخارجي JS قبل إغلاق الـ body مباشرة -->
     <script src="script.js"></script>
+        <!-- واجهة المساعد الذكي moaid المترابطة -->
+    <div class="chat-widget" id="chatWidget">
+        <!-- زر فتح الشات العائم -->
+        <button class="chat-trigger" onclick="toggleChat()">
+            <i class="fa-solid fa-comments"></i> <span id="chat-trigger-text">تحدث مع moaid</span>
+        </button>
+
+        <!-- نافذة المحادثة -->
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="bot-info">
+                    <div class="bot-avatar">M</div>
+                    <div>
+                        <h4>moaid</h4>
+                        <p id="bot-status">المساعد الذكي نشط الآن</p>
+                    </div>
+                </div>
+                <button class="close-chat" onclick="toggleChat()">&times;</button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <!-- الرسالة الترحيبية الافتتاحية -->
+                <div class="message bot-msg">
+                    اهلا بك يا فندم! أنا moaid المساعد الذكي لمستر تامر ربيع. نورت موقعنا! كيف يمكنني مساعدتك اليوم بخصوص مناهج اللغة الإنجليزية؟
+                </div>
+            </div>
+
+            <div class="chat-footer-input">
+                <input type="text" id="userInput" placeholder="اكتب استفسارك هنا..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
