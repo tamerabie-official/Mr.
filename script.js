@@ -139,3 +139,115 @@ function toggleLanguage() {
         document.getElementById('srv-3').textContent = content.ar.srv3;
     }
 }
+/* --- محرك المساعد الذكي moaid --- */
+
+let isDataGathering = false;
+let chatHistory = [];
+
+function toggleChat() {
+    const chatWindow = document.getElementById('chatWindow');
+    if (chatWindow.style.display === 'flex') {
+        chatWindow.style.display = 'none';
+    } else {
+        chatWindow.style.display = 'flex';
+    }
+}
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+function sendMessage() {
+    const userInput = document.getElementById('userInput');
+    const text = userInput.value.trim();
+    if (!text) return;
+
+    // عرض رسالة المستخدم في الشات
+    appendMessage(text, 'user-msg');
+    chatHistory.push("المتصل: " + text);
+    userInput.value = '';
+
+    // معالجة رد الذكاء الاصطناعي moaid
+    setTimeout(() => {
+        processBotResponse(text);
+    }, 600);
+}
+
+function appendMessage(text, className) {
+    const chatMessages = document.getElementById('chatMessages');
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `message ${className}`;
+    msgDiv.innerText = text;
+    chatMessages.appendChild(msgDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function processBotResponse(userText) {
+    let response = "";
+    const lowerText = userText.toLowerCase();
+
+    // 1. إذا كنا في مرحلة تجميع البيانات الختامية
+    if (isDataGathering) {
+        response = "سيتم التواصل معكم عبر وسيلتكم المفضلة";
+        appendMessage(response, 'bot-msg');
+        chatHistory.push("moaid: " + response);
+        isDataGathering = false;
+        
+        // حفظ التاريخ في الذاكرة المحلية للمتصفح كمجلد افتراضي
+        localStorage.setItem('moaid_chat_' + Date.now(), JSON.stringify(chatHistory));
+        
+        // إرسال ملخص الحوار والبيانات إلى الواتساب
+        sendSummaryToWhatsApp();
+        return;
+    }
+
+    // 2. فحص الكلمات الدلالية بناء على السيناريوهات المطلوبة
+    if (lowerText.includes('شرح') || lowerText.includes('امتحان') || lowerText.includes('امتحانات') || lowerText.includes('منهج') || lowerText.includes('new hello') || lowerText.includes('aim high')) {
+        response = "نعم يا فندم، الكورس يغطي شرح القواعد (Grammar) والكلمات بالكامل، مع حل امتحانات المحافظات السابقة بانتظام والتدريب على سؤال المحادثة والباراجراف لضمان الدرجة النهائية.";
+    } 
+    else if (lowerText.includes('متابعة') || lowerText.includes('مستوى') || lowerText.includes('المستوى') || lowerText.includes('درجات') || lowerText.includes('غياب')) {
+        response = "أكيد حضرتك العنصر الاساسي المعني بالمعرفة هيكون باكثر من وسيلة 1.اختاري وسيلة تواصل مناسبة ليك/ اسمي؟ ودى هتكون مرجع لحضرتك\nالمساعد الذكي moaidهيطلعك علي كل شي من مواعيد الدروس.رسائل تاكيد للحضور.رسائل الغياب.الدرجات.المستوي.السلوك.....كل شئ";
+    } 
+    else if (lowerText.includes('سوشيال') || lowerText.includes('تواصل') || lowerText.includes('حسابات') || lowerText.includes('فيسبوك') || lowerText.includes('لينكد')) {
+        response = "تحت أمرك يا فندم! إليك روابط التواصل الرسمية الخاصة بمستر تامر ربيع:\n" +
+                   "- تيك توك: https://www.tiktok.com/@mr.rabie50\n" +
+                   "- لينكد إن: https://www.linkedin.com/in/tamerrabie62\n" +
+                   "- فيسبوك: https://www.facebook.com/share/196NNPq4QS/\n" +
+                   "- تليجرام: t.me/Tamerelnoby";
+    }
+    else if (lowerText.includes('حجز') || lowerText.includes('سجل') || lowerText.includes('تسجيل') || lowerText.includes('اشترك') || lowerText.includes('اشتراك')) {
+        response = "الرجاء تزويدنا بالمعلومات التالية:\n- اسم المتعلم/الطالب:\n- السنة الدراسية:\n- رقم جوال ولي الأمر:\n- وسيلة التواصل المفضلة:";
+        isDataGathering = true; // تفعيل وضع جمع البيانات للمرة القادمة
+    }
+    else if (lowerText.includes('استفسار') || lowerText.includes('اتصل') || lowerText.includes('رقم')) {
+        response = "حضرتك اختاري وسيلة التواصل المناسبة لحضرتك الموجودة في ذيل الموقع (مثل واتساب أو تليجرام أو أرقام الهاتف)، وسنقوم بالرد عليكِ فوراً لتأكيد الحجز!";
+    }
+    else {
+        // الرد العام الذكي والمرحب بالعامية المصرية
+        response = "تحت أمرك يا فندم، مستر تامر ربيع بيقدم أفضل كورس لغة إنجليزية للمرحلة الإعدادية ومناهج اللغات. لو حابب تحجز أو تسجل بيانات الطالب، اكتب كلمة 'حجز' أو 'تسجيل' وهساعدك فوراً!";
+    }
+
+    appendMessage(response, 'bot-msg');
+    chatHistory.push("moaid: " + response);
+}
+
+// دالة تجميع الملخص وإرساله عبر الواتساب تلقائياً
+function sendSummaryToWhatsApp() {
+    const phoneNumber = "00201131413209";
+    let summaryText = "📌 *ملخص محادثة المساعد الذكي moaid*\n\n";
+    
+    chatHistory.forEach(line => {
+        summaryText += line + "\n";
+    });
+    
+    summaryText += "\n⏳ _تمت المعاملة بنجاح عبر الموقع الإلكتروني_";
+    
+    // تشفير النص ليتوافق مع روابط الويب
+    const encodedText = encodeURIComponent(summaryText);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+    
+    // فتح الرابط لإرسال التقرير فوراً لولي الأمر أو الحساب الخاص بك
+    window.open(whatsappURL, '_blank');
+               }
