@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamer Rabie | تامر ربيع</title>
+    <!-- استدعاء أيقونات FontAwesome للتواصل الاجتماعي -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ربط ملف التنسيق الخارجي CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- زر تبديل اللغة الاحترافي -->
+    <button class="lang-switcher-btn" onclick="toggleLanguage()" id="langBtn">English</button>
+
+    <!-- الآية القرآنية الثابتة في الأعلى -->
+    <div class="quran-header">
+        ‏﴿قَالَ رَبِّ اشْرَحْ لِي صَدْرِي ۝ وَيَسِّرْ لِي أَمْرِي ۝ وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي ۝ يَفْقَهُوا قَوْلِي﴾
+    </div>
+
+    <!-- قسم الهيرو الشخصي والتعريفي -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800" alt="Tamer Rabie" class="hero-image">
+                
+                <div class="hero-card">
+                    <h1 id="hero-name">تامر ربيع</h1>
+                    <div class="subtitle" id="hero-title">Tamer Rabie</div>
+                    <p id="hero-desc">
+                        صانع محتوى تعليمي. خريج جامعة جنوب الوادي - قسم اللغة الإنجليزية. 
+                        أمتلك خبرة مهنية تمتد لـ 15 سنة كـ PRO بمؤسسة مسار الطبية المتخصصة في مجال الأسنان في الدوحة، قطر.
+                    </p>
+                    <a href="#contact" class="btn-orange" id="hero-btn">التواصل الرسمي</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم رسالتي -->
+    <section class="mission-section">
+        <h2 id="mission-title">رسالتي</h2>
+        <p id="mission-text1">"اللغة الإنجليزية ليست مجرد لغة، بل طريقة تفكير."</p>
+        <p id="mission-text2" style="font-size: 1.1rem; color: var(--text-muted); margin-top: 10px;">
+            "الهوايات هي مُتنفّس الروح وملاذ الإنسان للهروب من ضغوط الحياة."
+        </p>
+    </section>
+
+    <!-- قسم أعمالي ومشاريعي الاستراتيجية -->
+    <section class="projects-section" id="projects">
+        <h2 id="projects-main-title">أعمالي ومشاريعي</h2>
+        <div class="projects-grid">
+            
+            <!-- المشروع الأول: قناة اليوتيوب -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=500" alt="English Learning Hub">
+                <div class="project-footer">
+                    <div>
+                        <h3>English Learning Hub</h3>
+                        <p id="p1-desc">قناة تعليمية على اليوتيوب لشرح منهج المرحلة الإعدادية (الاول والثاني والثالث الاعدادي) بطريقة عصرية تقيم وتصنف قدرات الدارسين لاختيار أفضل طريقة استيعاب لكل طالب.</p>
+                    </div>
+                    <a href="https://youtube.com/@englishhub-f1z?si=EWb90fKYBeJi-S7H" target="_blank" class="project-link">زيارة القناة <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <!-- المشروع الثاني: اختبار تحديد المستوى -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=500" alt="Placement Test">
+                <div class="project-footer">
+                    <div>
+                        <h3 id="p2-title">إختبار تحديد المستوى (التحدي)</h3>
+                        <p id="p2-desc">بمثابة المصافحة الأولى بيني وبين الدارس. اختبار شامل يعطي فكرة تعليمية دقيقة ومكتملة عن مستوى المتعلم الحالي ليعرف أين يقف بوضوح ونرسم معاً مسار التطوير.</p>
+                    </div>
+                    <a href="https://tamerrabie8-cmyk.github.io/Professional-placement-test/" target="_blank" class="project-link">ابدأ التحدي <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <!-- المشروع الثالث: معرض التصوير الفوتوغرافي -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1500627869374-13cd993b1115?q=80&w=500" alt="Photography">
+                <div class="project-footer">
+                    <div>
+                        <h3 id="p3-title">التصوير الفوتوغرافي</h3>
+                        <p id="p3-desc">هوايتي المفضلة التي أسعى لـ احترافها قريباً. معرضي الفوتوغرافي الأول الجاهز سيكون بعنوان "صباح الخير يا القاهرة".</p>
+                    </div>
+                    <div>
+                        <span style="font-weight: bold; font-size: 0.95rem; color: #fff;" id="p3-status">حلمي قريباً ⏳</span>
+                        <br>
+                        <a href="https://youtube.com/@englishhub-f1z?si=EWb90fKYBeJi-S7H" target="_blank" class="project-link" style="font-size:0.75rem; opacity:0.8;" id="p3-link">رابط مؤقت للمتابعة</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- قسم لغز الأسبوع -->
+    <section class="riddle-section">
+        <div class="riddle-container">
+            <h2 id="riddle-title">لغز الأسبوع</h2>
+            <div class="riddle-box">
+                <img src="https://images.unsplash.com/photo-1518887570146-0612132dd61a?q=80&w=600" alt="Riddle Image" class="riddle-image">
+                <div class="riddle-text">
+                    "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?"
+                </div>
+                <input type="text" class="answer-area" placeholder="Type your answer in English here..." id="riddleInput">
+                <button class="btn-orange" onclick="alert('Thank you for your answer!')" id="riddle-btn">إرسال الإجابة</button>
+            </div>
+        </div>
+    </section>
+    <section class="blog-section" id="blog">
+        <div class="blog-container">
+            <h2 id="blog-title">مدونة هلوسات</h2>
+            <div class="blog-grid">
+                
+                <div class="blog-card">
+                    <div class="blog-date">٢٦ يونيو ٢٠٢٦</div>
+                    <h3 class="blog-post-title" id="post1-title">أولى الهلوسات: خربشة على جدار الفكر</h3>
+                    <p class="blog-post-excerpt" id="post1-excerpt">هنا مساحة حرة تماماً خارج قيود المناهج وقواعد التعليم. أشارككم فيها بعض الأفكار العابرة والتأملات الشخصية في مجريات الحياة والمجتمع...</p>
+                    <a href="#" class="read-more-btn" id="post1-link">اقرأ المزيد ←</a>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-date">١٥ يونيو ٢٠٢٦</div>
+                    <h3 class="blog-post-title" id="post2-title">بين الشغف والمسؤولية</h3>
+                    <p class="blog-post-excerpt" id="post2-excerpt">كيف نوازن بين هواياتنا وملاذاتنا الروحية التي نتنفس بها، وبين التزامات وضغوط الحياة اليومية الحتمية؟ موازنة صعبة ولكنها تستحق المحاولة دائماً...</p>
+                    <a href="#" class="read-more-btn" id="post2-link">اقرأ المزيد ←</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- قسم الخدمات -->
+    <section class="services-section">
+        <h2 id="services-title">الخدمات التي أقدمها</h2>
+        <div class="services-list">
+            <div class="service-item" id="srv-1">كورسات لغة إنجليزية</div>
+            <div class="service-item" id="srv-2">جلسات محادثة</div>
+            <div class="service-item" id="srv-3">دروس لغة إنجليزية (المرحلة الإعدادية)</div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة: التواصل الرسمي والشبكات الاجتماعية -->
+    <footer class="footer-section" id="contact">
+        <div class="contact-info">
+            <a href="mailto:Mr.tamer2026@outlook.com"><i class="fa-solid fa-envelope"></i> Mr.tamer2026@outlook.com</a>
+            <a href="tel:0020113141320"><i class="fa-solid fa-phone"></i> 0020113141320</a>
+            <a href="https://wa.me/00201131413209" target="_blank"><i class="fa-brands fa-whatsapp"></i> 00201131413209</a>
+            <a href="https://t.me/Tamerelnoby" target="_blank"><i class="fa-solid fa-paper-plane"></i> t.me/Tamerelnoby</a>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.tiktok.com/@mr.rabie50?_r=1&_t=ZS-979RJTzIqkp" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/in/tamerrabie62?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/share/196NNPq4QS/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.reddit.com/u/Happy-Alternative188/s/KvqAQadX5o" target="_blank" title="Reddit"><i class="fa-brands fa-reddit-alien"></i></a>
+            <a href="https://x.com/TamerRabie62" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/tamer50523?igsh=MTBpaGZrNDk2ZHRpYg==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        
+        <p style="font-size: 0.85rem; color: var(--text-muted);">&copy; 2026 Tamer Rabie. All rights reserved.</p>
+    </footer>
+
+    <!-- ربط ملف البرمجة والتفاعل الخارجي JS قبل إغلاق الـ body مباشرة -->
+    <script src="script.js"></script>
+</body>
+</html>
