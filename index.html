@@ -161,11 +161,12 @@
         
         <p style="font-size: 0.85rem; color: var(--text-muted);">&copy; 2026 Tamer Rabie. All rights reserved.</p>
     </footer>
-    <!-- واجهة المساعد الذكي moaid العائمة -->
+    
+    <!-- واجهة المساعد الذكي moaid العائمة المطورة -->
     <div class="chat-widget-container">
-        <!-- زر فتح وإغلاق الشات -->
-        <button class="chat-trigger-btn" onclick="toggleChatWindow()">
-            <i class="fa-solid fa-comments"></i> <span id="chat-btn-text">تحدث مع moaid</span>
+        <!-- زر عائم دائرى أنيق -->
+        <button class="chat-trigger-btn" onclick="toggleChatWindow()" title="تحدث مع moaid">
+            <i class="fa-solid fa-comment-dots"></i>
         </button>
 
         <!-- نافذة المحادثة -->
@@ -190,15 +191,6 @@
             <div class="chat-input-area">
                 <input type="text" id="chatInput" placeholder="اكتب رسالتك هنا..." onkeypress="handleChatKeyPress(event)">
                 <button onclick="sendUserMessage()"><i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ربط ملف البرمجة الخارجي -->
-    <script src="script.js"></script>
-            <div class="chat-footer-input">
-                <input type="text" id="userInput" placeholder="اكتب استفسارك هنا..." onkeypress="handleKeyPress(event)">
-                <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
